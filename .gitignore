@@ -1,0 +1,17 @@
+node_modules/
+.next/
+out/
+dist/
+build/
+*.tsbuildinfo
+.env
+.env.local
+.env.*.local
+apps/api/.env
+apps/web/.env.local
+firebase-service-account.json
+apps/api/data/db.json
+.DS_Store
+npm-debug.log*
+coverage/
+.vercel

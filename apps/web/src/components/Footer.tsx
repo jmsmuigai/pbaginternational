@@ -1,0 +1,56 @@
+import Link from "next/link";
+import { CONTACT, SUBSIDIARIES } from "@pbag/shared";
+
+export function Footer() {
+  return (
+    <footer className="border-t border-white/10 bg-surface">
+      <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 md:grid-cols-4 md:px-8">
+        <div>
+          <p className="font-display text-xl font-bold">
+            PBAG <span className="text-gradient">International</span>
+          </p>
+          <p className="mt-3 text-sm text-cream/60">
+            Theatre. Talent. Production. Leadership. One organisation, four subsidiaries, live on stage.
+          </p>
+        </div>
+
+        <div>
+          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-cream/50">Explore</p>
+          <ul className="space-y-2 text-sm text-cream/80">
+            <li><Link href="/about" className="hover:text-gold">About Us</Link></li>
+            <li><Link href="/tickets" className="hover:text-gold">Tickets</Link></li>
+            <li><Link href="/contact" className="hover:text-gold">Contact Us</Link></li>
+          </ul>
+        </div>
+
+        <div>
+          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-cream/50">Subsidiaries</p>
+          <ul className="space-y-2 text-sm text-cream/80">
+            {SUBSIDIARIES.map((s) => (
+              <li key={s.slug}>
+                <Link href={`/subsidiaries/${s.slug}`} className="hover:text-gold">{s.name}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-cream/50">Contact</p>
+          <ul className="space-y-2 text-sm text-cream/80">
+            <li>{CONTACT.phone}</li>
+            <li>{CONTACT.email}</li>
+            <li>{CONTACT.address}</li>
+          </ul>
+          <div className="mt-4 flex gap-3 text-xs text-cream/60">
+            <a href={CONTACT.social.facebook} target="_blank" rel="noreferrer" className="hover:text-gold">Facebook</a>
+            <a href={CONTACT.social.instagram} target="_blank" rel="noreferrer" className="hover:text-gold">Instagram</a>
+            <a href={CONTACT.social.twitter} target="_blank" rel="noreferrer" className="hover:text-gold">X</a>
+          </div>
+        </div>
+      </div>
+      <div className="border-t border-white/10 py-5 text-center text-xs text-cream/40">
+        © {new Date().getFullYear()} PBAG International. All rights reserved.
+      </div>
+    </footer>
+  );
+}

@@ -1,0 +1,24 @@
+{
+  "name": "pbaginternational-website",
+  "private": true,
+  "version": "1.0.0",
+  "description": "PBAG International corporate website, subsidiaries hub, and integrated event ticketing / point-of-sale platform.",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:web": "npm run dev --workspace=apps/web",
+    "dev:api": "npm run dev --workspace=apps/api",
+    "build:web": "npm run build --workspace=apps/web",
+    "build:api": "npm run build --workspace=apps/api",
+    "generate:images": "python3 scripts/generate_images.py",
+    "simulate:ticket-flow": "npm run simulate --workspace=apps/api",
+    "seed": "npm run seed --workspace=apps/api",
+    "lint": "npm run lint --workspace=apps/web"
+  },
+  "engines": {
+    "node": ">=18.18.0"
+  },
+  "license": "UNLICENSED"
+}
