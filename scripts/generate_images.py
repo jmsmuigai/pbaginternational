@@ -313,6 +313,46 @@ def hero_texture(path, size=(1920, 1080)):
     print("wrote", path)
 
 
+def kikuyu_theme_background(path, base_color, accent1, accent2, size=(1920, 1080)):
+    """A traditional Kenyan Kikuyu inspired background pattern with earthy tones
+    and geometric elements (diamonds/triangles) mimicking traditional weaves/beadwork."""
+    img = Image.new("RGB", size, base_color)
+    draw = ImageDraw.Draw(img, "RGBA")
+    w, h = size
+    
+    # Draw repeating diamond patterns
+    pattern_size = 120
+    for y in range(0, h + pattern_size, pattern_size):
+        for x in range(0, w + pattern_size, pattern_size):
+            # Offset every other row
+            ox = x + (pattern_size // 2 if (y // pattern_size) % 2 == 1 else 0)
+            
+            # Outer diamond
+            points = [
+                (ox, y - pattern_size//2),
+                (ox + pattern_size//2, y),
+                (ox, y + pattern_size//2),
+                (ox - pattern_size//2, y)
+            ]
+            draw.polygon(points, outline=(*accent1, 40), width=4)
+            
+            # Inner diamond
+            inner_pts = [
+                (ox, y - pattern_size//4),
+                (ox + pattern_size//4, y),
+                (ox, y + pattern_size//4),
+                (ox - pattern_size//4, y)
+            ]
+            draw.polygon(inner_pts, fill=(*accent2, 30))
+            
+            # Small center dot
+            r = 6
+            draw.ellipse([ox - r, y - r, ox + r, y + r], fill=(*accent1, 60))
+
+    img = add_grain(img, intensity=12)
+    img.save(path, quality=90)
+    print("wrote", path)
+
 def main():
     for sub in ["events", "subsidiaries", "brand", "about", "avatars"]:
         os.makedirs(os.path.join(OUT, sub), exist_ok=True)
@@ -367,6 +407,20 @@ def main():
     favicon(os.path.join(OUT, "brand", "favicon.png"))
     og_image(os.path.join(OUT, "brand", "og-image.jpg"))
     hero_texture(os.path.join(OUT, "brand", "hero-texture.jpg"))
+
+    # Kikuyu Themes
+    kikuyu_theme_background(
+        os.path.join(OUT, "brand", "kikuyu-theme-1.jpg"),
+        base_color=(24, 12, 12),       # Dark earthy brown/black
+        accent1=(139, 69, 19),         # Saddle Brown
+        accent2=(178, 34, 34)          # Firebrick Red
+    )
+    kikuyu_theme_background(
+        os.path.join(OUT, "brand", "kikuyu-theme-2.jpg"),
+        base_color=(20, 15, 10),       # Very dark brown
+        accent1=(205, 133, 63),        # Peru
+        accent2=(128, 0, 0)            # Maroon
+    )
 
     # About / gallery avatar placeholders
     palette_pairs = [

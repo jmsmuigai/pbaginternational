@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { SUBSIDIARIES } from "@pbag/shared";
 import { Button } from "@/components/Button";
+import { TraditionalDivider } from "@/components/TraditionalDivider";
 
 export function generateStaticParams() {
   return SUBSIDIARIES.map((s) => ({ slug: s.slug }));
@@ -26,11 +27,15 @@ export default function SubsidiaryPage({ params }: { params: { slug: string } })
         <Image src={`/images/subsidiaries/${sub.slug}.jpg`} alt={sub.name} fill className="object-cover opacity-40" priority />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/80 to-ink/50" />
         <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-end px-6 pb-12 md:px-8">
-          <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-gold">PBAG Subsidiary</p>
+          <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-gold flex items-center gap-2">
+            <span>{sub.emoji}</span> PBAG Subsidiary {sub.isLead && <span className="text-xs text-gold border border-gold/30 rounded-full px-2 py-0.5 ml-2">LEAD</span>}
+          </p>
           <h1 className="font-display text-4xl font-extrabold md:text-6xl">{sub.name}</h1>
           <p className="mt-2 max-w-xl text-cream/80">{sub.tagline}</p>
         </div>
       </section>
+
+      <TraditionalDivider />
 
       <section className="py-16">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 md:grid-cols-3 md:px-8">
@@ -40,18 +45,16 @@ export default function SubsidiaryPage({ params }: { params: { slug: string } })
 
             <h3 className="mt-10 font-display text-xl font-bold">Gallery</h3>
             <p className="mt-1 text-sm text-cream/50">
-              [PLACEHOLDER — this gallery pulls from{" "}
-              <code className="rounded bg-white/10 px-1">/images/subsidiaries/{sub.slug}-gallery/</code>{" "}
-              so producers can update each subsidiary&apos;s media independently, without touching the others.]
+              Explore some of our recent highlights below.
             </p>
             <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
               {Array.from({ length: GALLERY_PLACEHOLDER_COUNT }).map((_, i) => (
                 <div
                   key={i}
-                  className="relative aspect-square overflow-hidden rounded-xl border border-white/10"
+                  className="relative aspect-square overflow-hidden rounded-xl border border-white/10 shadow-inner"
                   style={{ background: `linear-gradient(135deg, ${sub.colorFrom}, ${sub.colorTo})` }}
                 >
-                  <div className="absolute inset-0 flex items-center justify-center text-xs text-cream/70">
+                  <div className="absolute inset-0 flex items-center justify-center text-xs text-cream/70 backdrop-blur-sm">
                     Photo/video {i + 1}
                   </div>
                 </div>
@@ -60,7 +63,7 @@ export default function SubsidiaryPage({ params }: { params: { slug: string } })
           </div>
 
           <aside className="space-y-6">
-            <div className="rounded-3xl glass p-6">
+            <div className="rounded-3xl glass p-6 shadow-xl ring-1 ring-white/10">
               <p className="font-display text-lg font-bold">Get involved</p>
               <p className="mt-2 text-sm text-cream/65">
                 Interested in joining {sub.name}? Tell us a bit about yourself and we&apos;ll be in touch.
@@ -76,12 +79,12 @@ export default function SubsidiaryPage({ params }: { params: { slug: string } })
               )}
             </div>
 
-            <div className="rounded-3xl border border-white/10 p-6">
+            <div className="rounded-3xl border border-white/10 p-6 bg-white/[0.02]">
               <p className="font-display text-lg font-bold">Upcoming from {sub.name}</p>
               <p className="mt-2 text-sm text-cream/60">
                 See tickets for events produced by this subsidiary.
               </p>
-              <Link href="/tickets" className="mt-3 inline-block text-sm font-semibold text-primary-light hover:text-gold">
+              <Link href="/tickets" className="mt-3 inline-block text-sm font-semibold text-primary-light hover:text-gold transition-colors">
                 Browse tickets →
               </Link>
             </div>

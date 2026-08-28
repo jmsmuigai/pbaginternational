@@ -134,5 +134,34 @@ export function seedEvents(): EventRecord[] {
     ],
   };
 
-  return [ithaka, talentFinale, bungeSummit];
+  const ndeiyaTalentSearch: EventRecord = {
+    id: newId("evt"),
+    slug: "ndeiya-talent-search",
+    title: "Ndeiya Talent Search - PGT Festival",
+    subsidiary: "peers-got-talent",
+    description: "The 7th Edition of the Peers Got Talanta Festival. Categories include Tech & Digital Innovation, Comedy, Theatre & Film, and more. Winners participate in the Ndeiya Arts and Culture Week. Register Now! 0725 787 214",
+    category: "Talent Show",
+    venue: "Royoh Shopping Center / Kamangu Center",
+    isOnline: false,
+    startAt: inDays(14),
+    endAt: inDays(16),
+    coverImage: "/images/events/ndeiya-talent-search.jpg",
+    gallery: ["/images/events/ndeiya-talent-search.jpg", "/images/subsidiaries/peers-got-talent.jpg"],
+    status: "on_sale",
+    defaultCommissionRate: 0.1,
+    createdAt: new Date().toISOString(),
+    ticketTiers: [
+      {
+        id: newId("tier"),
+        name: "Registration Fee",
+        price: 500,
+        quantityTotal: 1000,
+        quantitySold: 0,
+        salesStart: new Date().toISOString(),
+        salesEnd: inDays(13),
+      },
+    ],
+  };
+
+  return [ithaka, talentFinale, bungeSummit, ndeiyaTalentSearch];
 }

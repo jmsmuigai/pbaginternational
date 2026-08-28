@@ -66,7 +66,11 @@ export default async function TicketsPage() {
                 <Link
                   key={event.id}
                   href={`/tickets/${event.slug}`}
-                  className="group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] transition hover:-translate-y-1 hover:border-primary-light/60"
+                  className={`group overflow-hidden rounded-3xl border transition hover:-translate-y-1 hover:border-primary-light/60 ${
+                    event.slug === "ndeiya-talent-search"
+                      ? "animate-dance shadow-dance-glow border-[3px] border-gold z-10"
+                      : "border-white/10 bg-white/[0.03]"
+                  }`}
                 >
                   <div className="relative h-48 w-full">
                     <Image src={event.coverImage} alt={event.title} fill className="object-cover transition duration-500 group-hover:scale-110" />

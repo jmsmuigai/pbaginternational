@@ -17,6 +17,8 @@ export interface Subsidiary {
   tagline: string;
   description: string;
   longDescription: string;
+  emoji: string;
+  isLead?: boolean;
   colorFrom: string;
   colorTo: string;
   joinMethod: "form" | "whatsapp";

@@ -11,6 +11,7 @@ import { posRouter } from "./routes/pos";
 import { adminRouter } from "./routes/admin";
 import { chatbotRouter } from "./routes/chatbot";
 import { contactRouter } from "./routes/contact";
+import { supportRouter } from "./routes/support";
 
 export function createApp() {
   const app = express();
@@ -32,6 +33,7 @@ export function createApp() {
   app.use("/api/admin", adminRouter);
   app.use("/api/chatbot", chatbotRouter);
   app.use("/api/contact", contactRouter);
+  app.use("/api/support", supportRouter);
 
   app.use((_req, res) => res.status(404).json({ error: "Not found" }));
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

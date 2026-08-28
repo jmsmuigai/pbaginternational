@@ -1,6 +1,6 @@
-# PBAG International — Corporate Website & Ticketing Platform
+# PBAG — Corporate Website & Ticketing Platform
 
-The full source for **pbaginternational.com**: a corporate/marketing site for PBAG
+The full source for **pbag.com**: a corporate/marketing site for PBAG
 and its four subsidiaries, plus an integrated, point-of-sale-enabled event
 ticketing platform with M-Pesa Daraja payments, seller/affiliate commission
 tracking, and live gate verification.
@@ -132,14 +132,8 @@ environment-variable change, not a code change.
 
 ## Deploying
 
-You said you'll host on **GitHub for now**, with **Google Cloud** as the
-target once PBAG approves. Full step-by-step instructions — creating the
-GitHub repo, pushing this code, then deploying `apps/web` and `apps/api` to
-Google Cloud (Cloud Run + Firebase Hosting) — are in
-[`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md). This project could not push to
-GitHub directly (no GitHub account connected to this session) — the repo has
-already been initialized locally with git; the deployment guide covers the
-exact commands to create the GitHub repo and push it.
+You have successfully deployed the frontend (`apps/web`) to **Vercel**. For the backend API (`apps/api`), **Google Cloud Run** or **Render** are recommended targets. Full step-by-step instructions — including how to connect Vercel to your API — are in
+[`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md).
 
 ## Further reading
 

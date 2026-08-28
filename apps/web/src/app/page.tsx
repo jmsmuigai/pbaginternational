@@ -5,6 +5,8 @@ import { GradientBlobs } from "@/components/GradientBlobs";
 import { SUBSIDIARIES } from "@pbag/shared";
 import type { EventRecord } from "@pbag/shared";
 import { API_URL } from "@/lib/api";
+import { Tilt3D } from "@/components/Tilt3D";
+import { TraditionalDivider } from "@/components/TraditionalDivider";
 
 export const dynamic = "force-dynamic";
 
@@ -71,7 +73,7 @@ export default async function HomePage() {
 
           <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {STATS.map((s) => (
-              <div key={s.label} className="rounded-2xl glass p-6 text-center">
+              <div key={s.label} className="rounded-2xl glass p-6 text-center ring-1 ring-white/5">
                 <p className="font-display text-4xl font-extrabold text-gradient">{s.value}</p>
                 <p className="mt-2 text-sm text-cream/60">{s.label}</p>
               </div>
@@ -79,6 +81,8 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
+      
+      <TraditionalDivider />
 
       {/* Subsidiaries preview */}
       <section className="bg-surface py-24">
@@ -95,29 +99,35 @@ export default async function HomePage() {
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {SUBSIDIARIES.map((s) => (
-              <Link
-                key={s.slug}
-                href={`/subsidiaries/${s.slug}`}
-                className="group relative overflow-hidden rounded-3xl border border-white/10"
-              >
-                <div className="relative h-72 w-full">
-                  <Image
-                    src={`/images/subsidiaries/${s.slug}.jpg`}
-                    alt={s.name}
-                    fill
-                    className="object-cover transition duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 p-5">
-                  <p className="font-display text-xl font-bold">{s.name}</p>
-                  <p className="mt-1 text-sm text-cream/70">{s.tagline}</p>
-                </div>
-              </Link>
+              <Tilt3D key={s.slug} perspective={1500} scale={1.03}>
+                <Link
+                  href={`/subsidiaries/${s.slug}`}
+                  className="group relative overflow-hidden rounded-3xl border border-white/10 block shadow-lg"
+                >
+                  <div className="relative h-72 w-full">
+                    <Image
+                      src={`/images/subsidiaries/${s.slug}.jpg`}
+                      alt={s.name}
+                      fill
+                      className="object-cover transition duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 p-5">
+                    <p className="font-display text-xl font-bold flex items-center gap-2">
+                      <span className="text-2xl">{s.emoji}</span>
+                      {s.name}
+                    </p>
+                    <p className="mt-1 text-sm text-cream/70 line-clamp-2">{s.tagline}</p>
+                  </div>
+                </Link>
+              </Tilt3D>
             ))}
           </div>
         </div>
       </section>
+
+      <TraditionalDivider />
 
       {/* CTA */}
       <section className="relative overflow-hidden py-24">
@@ -131,7 +141,7 @@ export default async function HomePage() {
           </p>
           <Link
             href="/tickets"
-            className="mt-8 inline-flex rounded-full bg-cream px-8 py-4 font-bold text-ink shadow-xl transition hover:-translate-y-0.5"
+            className="mt-8 inline-flex rounded-full bg-cream px-8 py-4 font-bold text-ink shadow-xl transition hover:-translate-y-0.5 hover:shadow-gold/20"
           >
             Browse Tickets
           </Link>

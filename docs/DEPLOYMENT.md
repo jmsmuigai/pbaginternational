@@ -1,8 +1,6 @@
 # Deployment Guide
 
-Your stated plan: host on **GitHub** for now (private, until PBAG approves),
-then move to **Google Cloud**. This guide covers both, plus activating
-Firebase and going live on M-Pesa Daraja.
+Your frontend is currently deployed on **Vercel** (`pbaginternational-web.vercel.app`), which is the recommended host for Next.js. This guide covers how to deploy your backend to **Google Cloud Run** (or Render), activating Firebase, and going live on M-Pesa Daraja.
 
 ## 1. Push this code to GitHub
 
@@ -81,7 +79,7 @@ gcloud run deploy pbag-api \
   --source . \
   --region <your-region> \
   --allow-unauthenticated \
-  --set-env-vars DB_DRIVER=firestore,MPESA_MODE=sandbox,FIREBASE_PROJECT_ID=<project-id>,CORS_ORIGIN=https://pbaginternational.com
+  --set-env-vars DB_DRIVER=firestore,MPESA_MODE=sandbox,FIREBASE_PROJECT_ID=<project-id>,CORS_ORIGIN=https://pbag.com,https://pbaginternational-web.vercel.app
 ```
 
 Add the M-Pesa and (if not using Application Default Credentials) Firebase
@@ -89,26 +87,18 @@ secrets via `gcloud run services update pbag-api --set-secrets=...` backed
 by **Secret Manager** — don't pass real secrets as plain `--set-env-vars` in
 production. Note the resulting `https://pbag-api-xxxxx.run.app` URL.
 
-### Web → Cloud Run (or Firebase Hosting with a Cloud Run backend)
+### Web → Vercel
 
-```bash
-cd apps/web
-# set NEXT_PUBLIC_API_URL to the Cloud Run API URL from above before building
-gcloud run deploy pbag-web \
-  --source . \
-  --region <your-region> \
-  --allow-unauthenticated \
-  --set-env-vars NEXT_PUBLIC_API_URL=https://pbag-api-xxxxx.run.app/api
-```
+Your frontend is already deployed to Vercel via GitHub integration.
 
-Then map your domain: **Cloud Run → Manage Custom Domains** → add
-`pbaginternational.com`, and update your DNS (A/AAAA or CNAME per Google's
-instructions) at your domain registrar.
+To point your Vercel frontend to your deployed API:
+1. Go to your Vercel project dashboard → Settings → Environment Variables.
+2. Add `NEXT_PUBLIC_API_URL` and set its value to your API URL (e.g., `https://pbag-api-xxxxx.run.app/api` or your Render URL).
+3. Trigger a redeploy in Vercel to apply the new environment variable.
 
-> Alternative for the frontend only: Next.js also deploys cleanly to
-> **Vercel** (`vercel deploy`) if you'd rather not run it on Cloud Run — the
-> API still runs on Cloud Run either way. Either is fine; Cloud Run keeps
-> everything in one place under your Google Cloud billing.
+If you add a custom domain later:
+1. **Vercel → Settings → Domains** → add `pbag.com`, and update your DNS (A/AAAA or CNAME per Vercel's instructions) at your domain registrar.
+2. Ensure you update `CORS_ORIGIN` in your backend API environment variables to include the new domain.
 
 ### CI
 

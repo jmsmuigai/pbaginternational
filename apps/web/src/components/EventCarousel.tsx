@@ -38,7 +38,7 @@ export function EventCarousel({ events }: { events: EventRecord[] }) {
           key={event.id}
           className={`absolute inset-0 transition-opacity duration-[1200ms] ease-in-out ${
             i === index ? "opacity-100 z-10" : "opacity-0 z-0"
-          }`}
+          } ${event.slug === "ndeiya-talent-search" && i === index ? "animate-dance shadow-dance-glow border-[6px] border-gold rounded-3xl m-4 overflow-hidden" : ""}`}
           aria-hidden={i !== index}
         >
           <div

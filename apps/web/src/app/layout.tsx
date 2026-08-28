@@ -1,17 +1,22 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import { Poppins, Inter } from "next/font/google";
 import "./globals.css";
 import { NavBar } from "@/components/NavBar";
 import { Footer } from "@/components/Footer";
 import { Chatbot } from "@/components/Chatbot";
+import { MusicPlayer } from "@/components/MusicPlayer";
 import { BRAND } from "@pbag/shared";
 
-// NOTE: font loading — this project intentionally uses a curated system
-// font stack (see --font-display / --font-body in globals.css) instead of
-// next/font/google, because next/font fetches Google Fonts *at build
-// time* and fails the build in any offline/restricted-network CI
-// environment (including the sandbox this project was scaffolded in).
-// To use real Poppins/Inter once you have full network access at build
-// time, swap in `next/font/google` here — see docs/GEMINI_ANTIGRAVITY_TASKS.md.
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-display",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-body",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(`https://${BRAND.domain}`),
@@ -34,14 +39,21 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  themeColor: "#120b23",
+  width: "device-width",
+  initialScale: 1,
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="font-body antialiased">
+      <body className={`${inter.variable} ${poppins.variable} font-body antialiased bg-african-pattern bg-fixed bg-cover bg-center bg-no-repeat text-white`}>
         <NavBar />
-        <main className="min-h-screen">{children}</main>
+        <main className="min-h-screen relative z-10">{children}</main>
         <Footer />
         <Chatbot />
+        <MusicPlayer />
       </body>
     </html>
   );
