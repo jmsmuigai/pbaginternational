@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { SUBSIDIARIES } from "@pbag/shared";
+import LogoImg from "../../public/images/brand/logo.png";
 
 const NAV = [
   { label: "Home", href: "/" },
@@ -34,7 +35,7 @@ export function NavBar() {
       </div>
       <nav className="glass mx-auto flex max-w-7xl items-center justify-between px-5 py-3 md:px-8 border-b-0 border-x-0 rounded-b-xl shadow-lg">
         <Link href="/" className="flex items-center gap-3">
-          <Image src="/images/brand/logo.png" alt="PBAG logo" width={40} height={40} className="rounded-full" />
+          <Image src={LogoImg} alt="PBAG logo" width={40} height={40} className="rounded-full" />
           <span className="font-display text-lg font-bold tracking-tight">
             <span className="text-gradient">PBAG</span> Consortium
           </span>

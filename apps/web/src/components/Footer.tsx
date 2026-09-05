@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { CONTACT, SUBSIDIARIES } from "@pbag/shared";
+import LogoImg from "../../public/images/brand/logo.png";
 
 export function Footer() {
   return (
@@ -8,7 +9,7 @@ export function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 md:grid-cols-4 md:px-8">
         <div>
           <Link href="/" className="flex items-center gap-3 mb-2">
-            <Image src="/images/brand/logo.png" alt="PBAG logo" width={40} height={40} className="rounded-full" />
+            <Image src={LogoImg} alt="PBAG logo" width={40} height={40} className="rounded-full" />
             <p className="font-display text-xl font-bold">
               <span className="text-gradient">PBAG</span> Consortium
             </p>

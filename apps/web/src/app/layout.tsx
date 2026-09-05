@@ -6,15 +6,9 @@ import { Chatbot } from "@/components/Chatbot";
 import { MusicPlayer } from "@/components/MusicPlayer";
 import { BRAND } from "@pbag/shared";
 
-// NOTE: deliberately NOT using next/font/google here. next/font fetches
-// Google Fonts over the network *at build time*, and that single fetch
-// failing (a flaky runner, a firewalled CI environment, a transient DNS
-// blip) turns into a hard build failure with no fallback — which is very
-// likely what caused earlier GitHub Actions "Deploy to Pages" runs to fail
-// silently and leave the old README showing at the live URL. The curated
-// system-font stack below (see --font-display / --font-body in
-// globals.css) looks close to Poppins/Inter and never depends on network
-// access to build successfully.
+// Font configurations are loaded via CSS @import in globals.css to avoid
+// build-time network fetches that cause Next.js static exports to fail
+// on restricted CI runners.
 
 export const metadata: Metadata = {
   metadataBase: new URL(`https://${BRAND.domain}`),
@@ -46,7 +40,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="font-body antialiased bg-african-pattern bg-fixed bg-cover bg-center bg-no-repeat text-white">
+      <body className="font-body antialiased bg-ink text-cream bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-surfaceAlt/30 via-ink to-ink text-lg font-light leading-relaxed">
         <NavBar />
         <main className="min-h-screen relative z-10">{children}</main>
         <Footer />
