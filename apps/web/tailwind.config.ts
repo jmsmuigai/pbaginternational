@@ -1,5 +1,14 @@
 import type { Config } from "tailwindcss";
 
+// Mirrors the basePath logic in next.config.js exactly. A raw CSS url(...)
+// baked in here at Tailwind's build time is NOT rewritten by Next's asset
+// prefixing the way next/image and next/link srcs are — so without this
+// prefix, this background 404s on the deployed GitHub Pages site (which is
+// served from /pbaginternational/...) even though it loads fine locally
+// where the basePath is empty. This was the main reason the site's textured
+// background disappeared once deployed.
+const basePath = process.env.GITHUB_ACTIONS ? "/pbaginternational" : "";
+
 const config: Config = {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
@@ -26,7 +35,7 @@ const config: Config = {
         "brand-gradient": "linear-gradient(135deg, #822617 0%, #B33924 45%, #D4AF37 100%)",
         "brand-gradient-alt": "linear-gradient(135deg, #D4AF37 0%, #E64A19 60%, #B33924 100%)",
         "radial-fade": "radial-gradient(circle at 50% 0%, rgba(179,57,36,0.35), transparent 60%)",
-        "african-pattern": "url('/images/theme/pattern_background.webp')",
+        "african-pattern": `url('${basePath}/images/theme/pattern_background.webp')`,
       },
       boxShadow: {
         glow: "0 0 40px rgba(179,57,36,0.35)",

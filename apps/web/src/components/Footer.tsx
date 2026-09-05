@@ -8,7 +8,7 @@ export function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 md:grid-cols-4 md:px-8">
         <div>
           <Link href="/" className="flex items-center gap-3 mb-2">
-            <Image src="/images/brand/logo_3d.jpg" alt="PBAG logo" width={40} height={40} className="rounded-full" />
+            <Image src="/images/brand/logo.png" alt="PBAG logo" width={40} height={40} className="rounded-full" />
             <p className="font-display text-xl font-bold">
               <span className="text-gradient">PBAG</span> Consortium
             </p>

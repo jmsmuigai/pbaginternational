@@ -194,6 +194,33 @@ export default function ConsultancyPage() {
         </div>
       </section>
 
+      {/* What "agentic AI" actually looks like — an illustrative visual, not a stock photo of a real team member */}
+      <section className="pb-20">
+        <div className="mx-auto max-w-5xl px-6 md:px-8">
+          <Tilt3D perspective={1600} scale={1.01} maxTilt={5}>
+            <div className="grid gap-0 overflow-hidden rounded-3xl border border-white/10 shadow-xl md:grid-cols-2">
+              <div className="relative h-64 md:h-full">
+                <Image
+                  src="/images/consultancy/ai-collaborator.jpg"
+                  alt="A stylised illustration representing an AI creative-assistant — not a photo of a real person"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="bg-white/[0.03] p-8">
+                <p className="text-sm font-semibold uppercase tracking-widest text-gold">What &quot;agentic AI&quot; means here</p>
+                <h3 className="mt-2 font-display text-xl font-bold">A drafting assistant, not an autopilot</h3>
+                <p className="mt-3 text-sm text-cream/70">
+                  When we say generative-AI tooling, we mean software that drafts a first pass — coverage notes, a
+                  storyboard, a key-art option — that your team then reviews and edits. This illustration is a
+                  stylised stand-in for that tooling, not a photo of a real crew member.
+                </p>
+              </div>
+            </div>
+          </Tilt3D>
+        </div>
+      </section>
+
       <TraditionalDivider />
 
       {/* Engagement process — framed timeline table */}

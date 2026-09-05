@@ -35,9 +35,8 @@ export function seedEvents(): EventRecord[] {
     isOnline: false,
     startAt: inDays(21),
     endAt: inDays(23),
-    coverImage: "/images/events/im2.jpg",
+    coverImage: "/images/events/ithaka-cia-kamiriithu.jpg",
     gallery: [
-      "/images/events/im2.jpg",
       "/images/events/ithaka-cia-kamiriithu.jpg",
       "/images/subsidiaries/pbag-theatre.jpg",
     ],
