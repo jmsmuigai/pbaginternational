@@ -11,17 +11,14 @@ import { TrailerModal } from "@/components/TrailerModal";
 import { Showtimes } from "@/components/Showtimes";
 import { CastAndCrew } from "@/components/CastAndCrew";
 
-export async function generateStaticParams() { return []; }
+import { seedEvents } from "@/lib/mockEvents";
+
+export async function generateStaticParams() {
+  return seedEvents().map((e) => ({ slug: e.slug }));
+}
 
 async function getEvent(slug: string): Promise<EventRecord | null> {
-  try {
-    const res = await fetch(`${API_URL}/events/${slug}`);
-    if (!res.ok) return null;
-    const data = await res.json();
-    return data.event as EventRecord;
-  } catch {
-    return null;
-  }
+  return seedEvents().find((e) => e.slug === slug) || null;
 }
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {

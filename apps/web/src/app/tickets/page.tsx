@@ -3,19 +3,13 @@ import type { Metadata } from "next";
 import type { EventRecord } from "@pbag/shared";
 import { API_URL } from "@/lib/api";
 import { Suspense } from "react";
+import { seedEvents } from "@/lib/mockEvents";
 import { EventListClient } from "@/components/EventListClient";
 
 export const metadata: Metadata = { title: "Tickets" };
 
 async function getEvents(): Promise<EventRecord[]> {
-  try {
-    const res = await fetch(`${API_URL}/events`);
-    if (!res.ok) return [];
-    const data = await res.json();
-    return data.events as EventRecord[];
-  } catch {
-    return [];
-  }
+  return seedEvents();
 }
 
 export default async function TicketsPage() {

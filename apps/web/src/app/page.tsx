@@ -7,17 +7,11 @@ import type { EventRecord } from "@pbag/shared";
 import { API_URL } from "@/lib/api";
 import { Tilt3D } from "@/components/Tilt3D";
 import { TraditionalDivider } from "@/components/TraditionalDivider";
+import { seedEvents } from "@/lib/mockEvents";
 
 
 async function getUpcomingEvents(): Promise<EventRecord[]> {
-  try {
-    const res = await fetch(`${API_URL}/events`);
-    if (!res.ok) return [];
-    const data = await res.json();
-    return (data.events as EventRecord[]).filter((e) => e.status === "on_sale");
-  } catch {
-    return [];
-  }
+  return seedEvents().filter((e) => e.status === "on_sale");
 }
 
 const STATS = [
