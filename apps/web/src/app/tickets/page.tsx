@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { TicketFilters } from "@/components/TicketFilters";
 import type { Metadata } from "next";
 import type { EventRecord } from "@pbag/shared";
 import { API_URL } from "@/lib/api";
@@ -23,8 +24,28 @@ function lowestPrice(event: EventRecord) {
   return Math.min(...event.ticketTiers.map((t) => t.price));
 }
 
-export default async function TicketsPage() {
-  const events = await getEvents();
+export default async function TicketsPage({
+  searchParams,
+}: {
+  searchParams: { q?: string; category?: string };
+}) {
+  let events = await getEvents();
+
+  // Apply filters server-side
+  const query = searchParams.q?.toLowerCase() || "";
+  const category = searchParams.category;
+
+  if (query) {
+    events = events.filter(
+      (e) =>
+        e.title.toLowerCase().includes(query) ||
+        e.venue.toLowerCase().includes(query)
+    );
+  }
+
+  if (category && category !== "All") {
+    events = events.filter((e) => e.category === category);
+  }
 
   return (
     <div className="py-16">
@@ -50,6 +71,8 @@ export default async function TicketsPage() {
             </Link>
           </div>
         </div>
+
+        <TicketFilters />
 
         {events.length === 0 ? (
           <div className="rounded-3xl glass p-12 text-center text-cream/60">

@@ -89,7 +89,7 @@ export default function AboutPage() {
             <p className="text-sm font-semibold uppercase tracking-widest text-gold">Leadership</p>
             <h2 className="mt-2 font-display text-3xl font-extrabold md:text-4xl">The PBAG Bunge Initiative</h2>
             <p className="mx-auto mt-3 max-w-xl text-sm text-cream/50">
-              Rather than a traditional corporate board, PBAG's leadership and civic direction is driven by PBAG Bunge — our dedicated youth parliamentary-debate and civic-leadership programme.
+              Rather than a traditional corporate board, PBAG&apos;s leadership and civic direction is driven by PBAG Bunge — our dedicated youth parliamentary-debate and civic-leadership programme.
             </p>
           </div>
           
@@ -103,7 +103,7 @@ export default function AboutPage() {
                 <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-green-500 to-sky-500 shadow-glow mb-4">
                   <span className="text-3xl">🏛️</span>
                 </div>
-                <h3 className="font-display text-2xl font-bold">Training Tomorrow's Leaders</h3>
+                <h3 className="font-display text-2xl font-bold">Training Tomorrow&apos;s Leaders</h3>
                 <p className="mt-4 text-cream/70">
                   Through public speaking, governance training, and structured debate, PBAG Bunge empowers the youth to articulate their visions and debate policy with confidence, emerging as the transformative leaders who will shape the future of our communities and the nation.
                 </p>

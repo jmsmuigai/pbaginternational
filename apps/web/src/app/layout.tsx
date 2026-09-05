@@ -4,6 +4,7 @@ import "./globals.css";
 import { NavBar } from "@/components/NavBar";
 import { Footer } from "@/components/Footer";
 import { Chatbot } from "@/components/Chatbot";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { MusicPlayer } from "@/components/MusicPlayer";
 import { BRAND } from "@pbag/shared";
 
@@ -54,6 +55,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <Chatbot />
         <MusicPlayer />
+        {/* Placeholder GA Measurement ID. Update to the real G-XXXXXXX when available */}
+        <GoogleAnalytics gaId="G-XXXXXXXXXX" />
       </body>
     </html>
   );
