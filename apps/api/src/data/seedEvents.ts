@@ -63,6 +63,13 @@ export function seedEvents(): EventRecord[] {
         salesEnd: inDays(20),
       },
     ],
+    trailerUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Placeholder trailer
+    showtimes: [inDays(21), inDays(22), inDays(23)],
+    castAndCrew: [
+      { name: "John Doe", role: "Director", imageUrl: "/images/placeholders/cast_1.jpg" },
+      { name: "Jane Smith", role: "Lead Actor", imageUrl: "/images/placeholders/cast_2.jpg" },
+      { name: "Kariuki Wa Njoroge", role: "Supporting Actor", imageUrl: "/images/placeholders/cast_3.jpg" },
+    ],
   };
 
   const talentFinale: EventRecord = {

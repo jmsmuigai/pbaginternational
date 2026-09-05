@@ -7,6 +7,9 @@ import { API_URL } from "@/lib/api";
 import { formatDate, formatTime } from "@/lib/format";
 import { CheckoutFlow } from "@/components/CheckoutFlow";
 import { BecomeSeller } from "@/components/BecomeSeller";
+import { TrailerModal } from "@/components/TrailerModal";
+import { Showtimes } from "@/components/Showtimes";
+import { CastAndCrew } from "@/components/CastAndCrew";
 
 export async function generateStaticParams() { return []; }
 
@@ -36,13 +39,20 @@ export default async function EventPage({ params }: { params: { slug: string } }
         <Image src={event.coverImage} alt={event.title} fill className="object-cover" priority />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-ink/20" />
         <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-end px-6 pb-10 md:px-8">
-          <span className="mb-3 w-fit rounded-full bg-cream/95 px-3 py-1 text-xs font-bold uppercase text-ink">
-            {event.category}
-          </span>
-          <h1 className="font-display text-3xl font-extrabold md:text-5xl">{event.title}</h1>
-          <p className="mt-2 text-cream/75">
-            {formatDate(event.startAt)} · {formatTime(event.startAt)} · {event.venue}
+          <div className="mb-3 flex items-center gap-3">
+            <span className="w-fit rounded-full bg-cream/95 px-3 py-1 text-xs font-bold uppercase text-ink">
+              {event.category}
+            </span>
+          </div>
+          <h1 className="font-display text-3xl font-extrabold md:text-5xl text-cream">{event.title}</h1>
+          <p className="mt-2 text-cream/80 text-lg">
+            {formatDate(event.startAt)} · {event.venue}
           </p>
+          {event.trailerUrl && (
+            <div className="mt-4">
+              <TrailerModal trailerUrl={event.trailerUrl} title={event.title} />
+            </div>
+          )}
         </div>
       </section>
 
@@ -50,10 +60,16 @@ export default async function EventPage({ params }: { params: { slug: string } }
         <div className="mx-auto grid max-w-7xl gap-10 px-6 md:grid-cols-3 md:px-8">
           <div className="space-y-8 md:col-span-2">
             <div>
-              <h2 className="font-display text-xl font-bold">About this event</h2>
-              <p className="mt-3 leading-relaxed text-cream/75">{event.description}</p>
+              <h2 className="font-display text-2xl font-bold">About this event</h2>
+              <p className="mt-4 leading-relaxed text-cream/80">{event.description}</p>
             </div>
-            <BecomeSeller eventId={event.id} eventSlug={event.slug} />
+            
+            {event.showtimes && <Showtimes showtimes={event.showtimes} />}
+            {event.castAndCrew && <CastAndCrew castAndCrew={event.castAndCrew} />}
+            
+            <div className="pt-8">
+              <BecomeSeller eventId={event.id} eventSlug={event.slug} />
+            </div>
           </div>
 
           <div>

@@ -11,27 +11,27 @@ html {
 }
 
 body {
-  background-color: #0F172A;
-  color: #F8FAFC;
+  background-color: #0D0D0D;
+  color: #F9F6F0;
 }
 
 ::selection {
-  background: #3B82F6;
-  color: #F8FAFC;
+  background: #B33924;
+  color: #F9F6F0;
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, #f5b400 0%, #fb5d5d 45%, #3B82F6 100%);
+  background: linear-gradient(135deg, #D4AF37 0%, #E64A19 45%, #B33924 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
 .glass {
-  background: rgba(30, 41, 59, 0.55);
+  background: rgba(42, 25, 16, 0.55);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(248, 250, 252, 0.08);
+  border: 1px solid rgba(249, 246, 240, 0.08);
 }
 
 .blob {
@@ -43,7 +43,7 @@ body {
 }
 
 .shimmer-text {
-  background: linear-gradient(90deg, #F8FAFC 0%, #f5b400 25%, #F8FAFC 50%, #fb5d5d 75%, #F8FAFC 100%);
+  background: linear-gradient(90deg, #F9F6F0 0%, #D4AF37 25%, #F9F6F0 50%, #E64A19 75%, #F9F6F0 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
@@ -65,7 +65,7 @@ button:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
-  outline: 2px solid #f5b400;
+  outline: 2px solid #D4AF37;
   outline-offset: 2px;
   border-radius: 4px;
 }

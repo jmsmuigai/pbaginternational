@@ -70,6 +70,9 @@ export interface EventRecord {
   ticketTiers: TicketTier[];
   defaultCommissionRate: number; // 0..1
   createdAt: string;
+  trailerUrl?: string;
+  castAndCrew?: { name: string; role: string; imageUrl?: string }[];
+  showtimes?: string[]; // Array of ISO strings for multiple showings
 }
 
 export type SellerLinkChannel = "code" | "link" | "qr" | "pos";

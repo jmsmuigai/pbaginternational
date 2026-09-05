@@ -5,33 +5,33 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#0F172A",
-        surface: "#1E293B",
-        surfaceAlt: "#334155",
+        ink: "#0D0D0D", // Deep cinematic black
+        surface: "#2A1910", // Dark traditional earth/brown
+        surfaceAlt: "#4A291A", // Lighter earth tone
         primary: {
-          DEFAULT: "#3B82F6",
-          dark: "#1D4ED8",
-          light: "#93C5FD",
+          DEFAULT: "#B33924", // Deep rich traditional red
+          dark: "#822617",
+          light: "#E06D4D",
         },
-        gold: "#F5B400",
-        coral: "#FB5D5D",
-        emerald: "#22C55E",
-        cream: "#F8FAFC",
+        gold: "#D4AF37", // Cinematic gold
+        coral: "#E64A19",
+        emerald: "#2E7D32",
+        cream: "#F9F6F0",
       },
       fontFamily: {
         display: ["var(--font-display)", "system-ui", "sans-serif"],
         body: ["var(--font-body)", "system-ui", "sans-serif"],
       },
       backgroundImage: {
-        "brand-gradient": "linear-gradient(135deg, #1D4ED8 0%, #3B82F6 45%, #FB5D5D 100%)",
-        "brand-gradient-alt": "linear-gradient(135deg, #F5B400 0%, #FB5D5D 60%, #3B82F6 100%)",
-        "radial-fade": "radial-gradient(circle at 50% 0%, rgba(59,130,246,0.35), transparent 60%)",
-        "african-pattern": "url('/images/brand/kikuyu-theme-1.jpg')",
+        "brand-gradient": "linear-gradient(135deg, #822617 0%, #B33924 45%, #D4AF37 100%)",
+        "brand-gradient-alt": "linear-gradient(135deg, #D4AF37 0%, #E64A19 60%, #B33924 100%)",
+        "radial-fade": "radial-gradient(circle at 50% 0%, rgba(179,57,36,0.35), transparent 60%)",
+        "african-pattern": "url('/images/theme/pattern_background.webp')",
       },
       boxShadow: {
-        glow: "0 0 40px rgba(59,130,246,0.35)",
-        "glow-gold": "0 0 40px rgba(245,180,0,0.30)",
-        "dance-glow": "0 0 20px rgba(251,93,93,0.6), 0 0 40px rgba(245,180,0,0.4)",
+        glow: "0 0 40px rgba(179,57,36,0.35)",
+        "glow-gold": "0 0 40px rgba(212,175,55,0.30)",
+        "dance-glow": "0 0 20px rgba(230,74,25,0.6), 0 0 40px rgba(212,175,55,0.4)",
       },
       keyframes: {
         floaty: {

@@ -15,14 +15,6 @@ export function TicketFilters() {
 
   const [query, setQuery] = useState(currentQuery);
 
-  // Debounced search
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      createQueryString("q", query);
-    }, 400);
-    return () => clearTimeout(timer);
-  }, [query, createQueryString]);
-
   const createQueryString = useCallback(
     (name: string, value: string) => {
       const params = new URLSearchParams(searchParams.toString());
@@ -35,6 +27,14 @@ export function TicketFilters() {
     },
     [searchParams, pathname, router]
   );
+
+  // Debounced search
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      createQueryString("q", query);
+    }, 400);
+    return () => clearTimeout(timer);
+  }, [query, createQueryString]);
 
   return (
     <div className="mb-10 flex flex-col gap-4">
