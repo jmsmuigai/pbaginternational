@@ -3,6 +3,13 @@ import type { Metadata } from "next";
 import { SUBSIDIARIES } from "@pbag/shared";
 import { JoinForm } from "@/components/JoinForm";
 
+// Required for `output: "export"` — without this, a dynamic route like
+// /subsidiaries/[slug]/join fails the entire static build (this was one of
+// the causes of GitHub Pages repeatedly failing to deploy).
+export function generateStaticParams() {
+  return SUBSIDIARIES.map((s) => ({ slug: s.slug }));
+}
+
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const sub = SUBSIDIARIES.find((s) => s.slug === params.slug);
   return { title: sub ? `Join ${sub.name}` : "Join PBAG" };

@@ -3,7 +3,11 @@
 @tailwind utilities;
 
 :root {
-  /* Font variables are now injected by next/font in layout.tsx */
+  /* Curated system-font stacks standing in for Poppins/Inter — chosen so the
+     production build never depends on a network fetch to Google Fonts at
+     build time (see the note in src/app/layout.tsx). */
+  --font-display: ui-sans-serif, "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --font-body: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 html {

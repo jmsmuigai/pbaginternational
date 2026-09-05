@@ -68,15 +68,12 @@ export default function SubsidiaryPage({ params }: { params: { slug: string } })
               <p className="mt-2 text-sm text-cream/65">
                 Interested in joining {sub.name}? Tell us a bit about yourself and we&apos;ll be in touch.
               </p>
-              {sub.joinMethod === "whatsapp" ? (
-                <Button href={sub.joinTarget} className="mt-4 w-full" variant="gold">
-                  Join via WhatsApp
-                </Button>
-              ) : (
-                <Button href={sub.joinTarget} className="mt-4 w-full" variant="gold">
-                  Fill the interest form
-                </Button>
-              )}
+              <Button href={sub.joinTarget} className="mt-4 w-full" variant="gold">
+                Join via WhatsApp
+              </Button>
+              <Button href={`/subsidiaries/${sub.slug}/join`} className="mt-3 w-full" variant="secondary">
+                Fill the interest form instead
+              </Button>
             </div>
 
             <div className="rounded-3xl border border-white/10 p-6 bg-white/[0.02]">

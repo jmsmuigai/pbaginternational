@@ -42,17 +42,19 @@ export default function ContactPage() {
           </div>
 
           <div className="mt-10 flex gap-3">
-            {Object.entries(CONTACT.social).map(([name, url]) => (
-              <a
-                key={name}
-                href={url}
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-full border border-white/15 px-4 py-2 text-sm capitalize text-cream/80 hover:border-gold hover:text-gold"
-              >
-                {name}
-              </a>
-            ))}
+            {Object.entries(CONTACT.social)
+              .filter((entry): entry is [string, string] => Boolean(entry[1]))
+              .map(([name, url]) => (
+                <a
+                  key={name}
+                  href={url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-full border border-white/15 px-4 py-2 text-sm capitalize text-cream/80 hover:border-gold hover:text-gold"
+                >
+                  {name}
+                </a>
+              ))}
           </div>
         </div>
 

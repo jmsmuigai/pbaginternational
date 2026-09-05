@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Support PBAG",
-  description: "Support PBAG International's mission through an M-Pesa donation.",
+  description: "Support the PBAG Consortium's mission through an M-Pesa donation.",
 };
 
 export default function SupportPage() {
@@ -15,7 +15,7 @@ export default function SupportPage() {
             Support Our <span className="text-gold">Mission</span>
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-cream/80">
-            PBAG International thrives on the support of our community. Your contribution helps us nurture raw talent, produce world-class theatre, and empower the next generation of leaders.
+            The PBAG Consortium thrives on the support of our community. Your contribution helps us nurture raw talent, produce world-class theatre, and empower the next generation of leaders.
           </p>
         </div>
 

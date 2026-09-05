@@ -59,7 +59,7 @@ chatbotRouter.post("/", async (req, res) => {
 
   if (env.anthropicApiKey) {
     try {
-      const system = `You are the PBAG International website assistant. Be concise and friendly. PBAG has four subsidiaries: ${SUBSIDIARIES.map(
+      const system = `You are the PBAG Consortium (Peers Best Art Group) website assistant. Be concise and friendly. PBAG has four subsidiaries: ${SUBSIDIARIES.map(
         (s) => `${s.name} (${s.description})`
       ).join(" | ")}. Events currently on sale: ${onSaleTitles.join(", ") || "none right now"}. Contact: ${CONTACT.email}, ${CONTACT.phone}. Payment methods: M-Pesa, Airtel Money, card, PayPal, and cash/M-Pesa at the door.`;
 

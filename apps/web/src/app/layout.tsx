@@ -1,35 +1,32 @@
 import type { Metadata, Viewport } from "next";
-import { Poppins, Inter } from "next/font/google";
 import "./globals.css";
 import { NavBar } from "@/components/NavBar";
 import { Footer } from "@/components/Footer";
 import { Chatbot } from "@/components/Chatbot";
-import { GoogleAnalytics } from "@next/third-parties/google";
 import { MusicPlayer } from "@/components/MusicPlayer";
 import { BRAND } from "@pbag/shared";
 
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-display",
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-body",
-});
+// NOTE: deliberately NOT using next/font/google here. next/font fetches
+// Google Fonts over the network *at build time*, and that single fetch
+// failing (a flaky runner, a firewalled CI environment, a transient DNS
+// blip) turns into a hard build failure with no fallback — which is very
+// likely what caused earlier GitHub Actions "Deploy to Pages" runs to fail
+// silently and leave the old README showing at the live URL. The curated
+// system-font stack below (see --font-display / --font-body in
+// globals.css) looks close to Poppins/Inter and never depends on network
+// access to build successfully.
 
 export const metadata: Metadata = {
   metadataBase: new URL(`https://${BRAND.domain}`),
   title: {
-    default: "PBAG International — Theatre, Talent, Production & Leadership",
-    template: "%s · PBAG International",
+    default: "PBAG Consortium — Theatre, Talent, Production & Leadership",
+    template: "%s · PBAG Consortium",
   },
   description:
-    "PBAG International is the parent brand behind PBAG Theatre, Peers Got Talent, Peatice Production and PBAG Bunge — with an integrated ticketing platform for every PBAG live event.",
+    "The PBAG Consortium (Peers Best Art Group) is the parent brand behind PBAG Theatre, Peers Got Talanta (PGT), Peatice Productions and PBAG Bunge — with an integrated ticketing platform for every PBAG live event.",
   icons: { icon: "/images/brand/favicon.png" },
   openGraph: {
-    title: "PBAG International",
+    title: "PBAG Consortium",
     description: "Theatre. Talent. Production. Leadership. Get tickets to every PBAG live event.",
     images: ["/images/brand/og-image.jpg"],
     type: "website",
@@ -41,7 +38,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#120b23",
+  themeColor: "#0D0D0D",
   width: "device-width",
   initialScale: 1,
 };
@@ -49,14 +46,17 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${poppins.variable} font-body antialiased bg-african-pattern bg-fixed bg-cover bg-center bg-no-repeat text-white`}>
+      <body className="font-body antialiased bg-african-pattern bg-fixed bg-cover bg-center bg-no-repeat text-white">
         <NavBar />
         <main className="min-h-screen relative z-10">{children}</main>
         <Footer />
         <Chatbot />
         <MusicPlayer />
-        {/* Placeholder GA Measurement ID. Update to the real G-XXXXXXX when available */}
-        <GoogleAnalytics gaId="G-XXXXXXXXXX" />
+        {/* Google Analytics is intentionally omitted until PBAG supplies a real
+            Measurement ID — a hardcoded G-XXXXXXXXXX placeholder would ship a
+            non-functional tracking script. Set NEXT_PUBLIC_GA_ID and re-add
+            <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} /> from
+            @next/third-parties/google once one exists. */}
       </body>
     </html>
   );

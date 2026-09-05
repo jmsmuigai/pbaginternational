@@ -25,17 +25,17 @@ export function NavBar() {
     <header className="sticky top-0 z-50">
       <div className="w-full overflow-hidden bg-brand-gradient py-1.5 text-center text-xs font-bold uppercase tracking-widest text-white shadow-md">
         <div className="whitespace-nowrap inline-block animate-marquee group">
-          <Link href="/placeholder" className="mx-4 hover:text-gold transition">🌟 NDEIYA TALENT SEARCH - PGT PEERS GOT TALANTA FESTIVAL 7TH EDITION - 21ST TO 23RD - REGISTER NOW! 0725 787 214 🌟</Link>
-          <Link href="/placeholder" className="mx-4 hover:text-gold transition">🌟 WINNERS TO PARTICIPATE IN NDEIYA ARTS AND CULTURE WEEK #NACWEEK26 🌟</Link>
-          <Link href="/placeholder" className="mx-4 hover:text-gold transition">🌟 CATEGORIES: TECH, COMEDY, FILM, STORYTELLING, VISUAL ARTS, DJ, MUSIC, FASHION 🌟</Link>
-          <Link href="/placeholder" className="mx-4 hover:text-gold transition">🌟 NDEIYA TALENT SEARCH - PGT PEERS GOT TALANTA FESTIVAL 7TH EDITION - REGISTER NOW! 0725 787 214 🌟</Link>
+          <Link href="/tickets/ndeiya-talent-search" className="mx-4 hover:text-gold transition">🌟 NDEIYA TALENT SEARCH - PGT PEERS GOT TALANTA FESTIVAL 7TH EDITION - 21ST TO 23RD - REGISTER NOW! 0725 787 214 🌟</Link>
+          <Link href="/tickets/ndeiya-talent-search" className="mx-4 hover:text-gold transition">🌟 WINNERS TO PARTICIPATE IN NDEIYA ARTS AND CULTURE WEEK #NACWEEK26 🌟</Link>
+          <Link href="/tickets/ndeiya-talent-search" className="mx-4 hover:text-gold transition">🌟 CATEGORIES: TECH, COMEDY, FILM, STORYTELLING, VISUAL ARTS, DJ, MUSIC, FASHION 🌟</Link>
+          <Link href="/tickets/ndeiya-talent-search" className="mx-4 hover:text-gold transition">🌟 NDEIYA TALENT SEARCH - PGT PEERS GOT TALANTA FESTIVAL 7TH EDITION - REGISTER NOW! 0725 787 214 🌟</Link>
         </div>
       </div>
       <nav className="glass mx-auto flex max-w-7xl items-center justify-between px-5 py-3 md:px-8 border-b-0 border-x-0 rounded-b-xl shadow-lg">
         <Link href="/" className="flex items-center gap-3">
           <Image src="/images/brand/logo.png" alt="PBAG logo" width={40} height={40} className="rounded-full" />
           <span className="font-display text-lg font-bold tracking-tight">
-            PBAG <span className="text-gradient">International</span>
+            <span className="text-gradient">PBAG</span> Consortium
           </span>
         </Link>
 

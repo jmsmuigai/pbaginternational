@@ -26,7 +26,7 @@ export default function AboutPage() {
             A creative organisation built to <span className="text-gradient">put stories on stage.</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-cream/70">
-            PBAG began as a small collective of visionary performers and organisers with one primary goal: to build sustainable platforms for Kenyan creative and civic talent to be discovered, trained, and celebrated on a global scale. From our humble beginnings staging local community theatre, we have grown into a multifaceted organisation that champions artistic excellence and cultural preservation. Today, that mission lives across four distinct subsidiaries, each with its own focus, working seamlessly together under the PBAG International name to redefine the arts landscape in East Africa and beyond.
+            PBAG began as a small collective of visionary performers and organisers with one primary goal: to build sustainable platforms for Kenyan creative and civic talent to be discovered, trained, and celebrated on a global scale. From our humble beginnings staging local community theatre, we have grown into a multifaceted organisation that champions artistic excellence and cultural preservation. Today, that mission lives across four distinct subsidiaries, each with its own focus, working seamlessly together under the PBAG Consortium name to redefine the arts landscape in East Africa and beyond.
           </p>
         </div>
       </section>

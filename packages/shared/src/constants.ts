@@ -1,24 +1,26 @@
 import type { Subsidiary } from "./types";
 
 /**
- * PBAG brand palette — a deep, theatrical purple paired with warm gold and
- * coral accents. Chosen to read as "modern arts & culture" rather than
- * generic corporate blue. See docs/BRAND.md for full usage guidance.
+ * PBAG brand palette — a cinematic black paired with a rich traditional red
+ * and warm gold, evoking both "modern film" and the traditional-textile
+ * accents used across the site (see TraditionalDivider). Kept in exact sync
+ * with apps/web/tailwind.config.ts and globals.css — if you change one,
+ * change all three.
  */
 export const BRAND = {
   name: "PBAG",
-  fullName: "PBAG International", // TODO(PBAG): confirm official full/legal name & acronym meaning
+  fullName: "Peers Best Art Group",
   domain: "pbag.com",
   colors: {
-    ink: "#0F172A", // near-black background (slate-900)
-    surface: "#1E293B", // slate-800
-    surfaceAlt: "#334155", // slate-700
-    primary: "#3B82F6", // blue-500
-    primaryDark: "#1D4ED8", // blue-700
-    accentGold: "#F5B400",
-    accentCoral: "#FB5D5D",
-    accentEmerald: "#22C55E",
-    cream: "#F8FAFC", // slate-50
+    ink: "#0D0D0D", // deep cinematic black
+    surface: "#2A1910", // dark traditional earth/brown
+    surfaceAlt: "#4A291A", // lighter earth tone
+    primary: "#B33924", // deep rich traditional red
+    primaryDark: "#822617",
+    accentGold: "#D4AF37",
+    accentCoral: "#E64A19",
+    accentEmerald: "#2E7D32",
+    cream: "#F9F6F0",
     slate: "#94A3B8",
   },
 } as const;
@@ -35,8 +37,8 @@ export const SUBSIDIARIES: Subsidiary[] = [
     emoji: "🎭",
     colorFrom: "#7C3AED",
     colorTo: "#5B21B6",
-    joinMethod: "form",
-    joinTarget: "/placeholder",
+    joinMethod: "whatsapp",
+    joinTarget: "https://wa.me/254720960180?text=Hi%2C%20I%27d%20like%20to%20join%20PBAG%20Theatre",
   },
   {
     slug: "peers-got-talent",
@@ -50,7 +52,7 @@ export const SUBSIDIARIES: Subsidiary[] = [
     colorFrom: "#F5B400",
     colorTo: "#FB923C",
     joinMethod: "whatsapp",
-    joinTarget: "/placeholder",
+    joinTarget: "https://wa.me/254720960180?text=Hi%2C%20I%27d%20like%20to%20join%20Peers%20Got%20Talanta%20(PGT)",
   },
   {
     slug: "peatice-production",
@@ -63,8 +65,8 @@ export const SUBSIDIARIES: Subsidiary[] = [
     emoji: "🎥",
     colorFrom: "#FB5D5D",
     colorTo: "#B91C1C",
-    joinMethod: "form",
-    joinTarget: "/placeholder",
+    joinMethod: "whatsapp",
+    joinTarget: "https://wa.me/254720960180?text=Hi%2C%20I%27d%20like%20to%20join%20Peatice%20Productions",
   },
   {
     slug: "pbag-bunge",
@@ -79,7 +81,7 @@ export const SUBSIDIARIES: Subsidiary[] = [
     colorFrom: "#22C55E",
     colorTo: "#0EA5E9",
     joinMethod: "whatsapp",
-    joinTarget: "/placeholder",
+    joinTarget: "https://wa.me/254720960180?text=Hi%2C%20I%27d%20like%20to%20join%20PBAG%20Bunge",
   },
 ];
 
@@ -91,12 +93,20 @@ export const CONTACT = {
   email: "pbagint@gmail.com",
   address: "Limuru, Kenya",
   social: {
-    facebook: "/placeholder",
-    instagram: "/placeholder", // TODO(PBAG): confirm handle
-    twitter: "/placeholder", // TODO(PBAG): confirm handle
-    youtube: "/placeholder", // TODO(PBAG): confirm handle
-    tiktok: "/placeholder", // TODO(PBAG): confirm handle
+    facebook: "https://web.facebook.com/Pbagconsortium",
+    // TODO(PBAG): confirm real Instagram/X/TikTok handles — until then these
+    // are omitted from display (see Footer.tsx / contact page) rather than
+    // pointing at a fake or internal placeholder URL.
+    instagram: null,
+    twitter: null,
+    // Verified real channel — "PBAG (Peers Best Art Group)", description
+    // matches PBAG RAW / PBAG THEATRE / PBAG GENERATION / PGT FESTIVAL.
+    youtube: "https://www.youtube.com/channel/UCFV2mTNumJFcQG6-s-xg_Ew",
+    tiktok: null,
   },
+  // Uploads playlist for the channel above (channel id UC→UU) — used to
+  // embed PBAG's real, live latest videos on /shows instead of fixed IDs.
+  youtubeUploadsPlaylist: "UUFV2mTNumJFcQG6-s-xg_Ew",
 };
 
 export const NAV_ITEMS = [

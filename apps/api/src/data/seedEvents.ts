@@ -7,6 +7,15 @@ const inDays = (n: number) => {
   return d.toISOString();
 };
 
+// Showtimes get a realistic evening curtain time (7:30 PM) rather than
+// whatever time of day the seed script happened to run at.
+const showtimeInDays = (n: number) => {
+  const d = new Date();
+  d.setDate(d.getDate() + n);
+  d.setHours(19, 30, 0, 0);
+  return d.toISOString();
+};
+
 /**
  * Sample events used to seed the database and power the landing-page
  * carousel + Tickets flow out of the box. Replace with real PBAG events —
@@ -63,13 +72,10 @@ export function seedEvents(): EventRecord[] {
         salesEnd: inDays(20),
       },
     ],
-    trailerUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Placeholder trailer
-    showtimes: [inDays(21), inDays(22), inDays(23)],
-    castAndCrew: [
-      { name: "John Doe", role: "Director", imageUrl: "/images/placeholders/cast_1.jpg" },
-      { name: "Jane Smith", role: "Lead Actor", imageUrl: "/images/placeholders/cast_2.jpg" },
-      { name: "Kariuki Wa Njoroge", role: "Supporting Actor", imageUrl: "/images/placeholders/cast_3.jpg" },
-    ],
+    // NOTE(PBAG): no real trailer or confirmed cast/crew exists yet for this
+    // production — omitted rather than filled with a stand-in video or
+    // invented names/photos of people who don't work on this show.
+    showtimes: [showtimeInDays(21), showtimeInDays(22), showtimeInDays(23)],
   };
 
   const talentFinale: EventRecord = {
