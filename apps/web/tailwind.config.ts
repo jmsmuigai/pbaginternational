@@ -5,31 +5,31 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#120B23",
-        surface: "#1B1130",
-        surfaceAlt: "#241640",
+        ink: "#0F172A",
+        surface: "#1E293B",
+        surfaceAlt: "#334155",
         primary: {
-          DEFAULT: "#7C3AED",
-          dark: "#5B21B6",
-          light: "#A78BFA",
+          DEFAULT: "#3B82F6",
+          dark: "#1D4ED8",
+          light: "#93C5FD",
         },
         gold: "#F5B400",
         coral: "#FB5D5D",
         emerald: "#22C55E",
-        cream: "#FCF7F0",
+        cream: "#F8FAFC",
       },
       fontFamily: {
         display: ["var(--font-display)", "system-ui", "sans-serif"],
         body: ["var(--font-body)", "system-ui", "sans-serif"],
       },
       backgroundImage: {
-        "brand-gradient": "linear-gradient(135deg, #5B21B6 0%, #7C3AED 45%, #FB5D5D 100%)",
-        "brand-gradient-alt": "linear-gradient(135deg, #F5B400 0%, #FB5D5D 60%, #7C3AED 100%)",
-        "radial-fade": "radial-gradient(circle at 50% 0%, rgba(124,58,237,0.35), transparent 60%)",
+        "brand-gradient": "linear-gradient(135deg, #1D4ED8 0%, #3B82F6 45%, #FB5D5D 100%)",
+        "brand-gradient-alt": "linear-gradient(135deg, #F5B400 0%, #FB5D5D 60%, #3B82F6 100%)",
+        "radial-fade": "radial-gradient(circle at 50% 0%, rgba(59,130,246,0.35), transparent 60%)",
         "african-pattern": "url('/images/brand/kikuyu-theme-1.jpg')",
       },
       boxShadow: {
-        glow: "0 0 40px rgba(124,58,237,0.35)",
+        glow: "0 0 40px rgba(59,130,246,0.35)",
         "glow-gold": "0 0 40px rgba(245,180,0,0.30)",
         "dance-glow": "0 0 20px rgba(251,93,93,0.6), 0 0 40px rgba(245,180,0,0.4)",
       },
@@ -63,7 +63,7 @@ const config: Config = {
           "0%, 100%": { transform: "rotate(-2deg) scale(1.02)", borderColor: "#F5B400" },
           "25%": { transform: "rotate(2deg) scale(0.98)", borderColor: "#FB5D5D" },
           "50%": { transform: "rotate(-2deg) scale(1.02)", borderColor: "#22C55E" },
-          "75%": { transform: "rotate(2deg) scale(0.98)", borderColor: "#7C3AED" },
+          "75%": { transform: "rotate(2deg) scale(0.98)", borderColor: "#3B82F6" },
         }
       },
       animation: {

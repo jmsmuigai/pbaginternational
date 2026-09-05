@@ -9,10 +9,10 @@ import { TraditionalDivider } from "@/components/TraditionalDivider";
 export const metadata: Metadata = { title: "About Us" };
 
 const TRACK_RECORD = [
-  { value: "10+", label: "Years active" },
+  { value: "15+", label: "Years of experience" },
   { value: "60+", label: "Productions & events delivered" },
   { value: "4", label: "Subsidiaries under one roof" },
-  { value: "50k+", label: "Audience members reached" },
+  { value: "10K+", label: "Audience members reached" },
 ];
 
 export default function AboutPage() {

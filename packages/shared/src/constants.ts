@@ -10,15 +10,15 @@ export const BRAND = {
   fullName: "PBAG International", // TODO(PBAG): confirm official full/legal name & acronym meaning
   domain: "pbag.com",
   colors: {
-    ink: "#120B23", // near-black background
-    surface: "#1B1130",
-    surfaceAlt: "#241640",
-    primary: "#7C3AED", // violet
-    primaryDark: "#5B21B6",
+    ink: "#0F172A", // near-black background (slate-900)
+    surface: "#1E293B", // slate-800
+    surfaceAlt: "#334155", // slate-700
+    primary: "#3B82F6", // blue-500
+    primaryDark: "#1D4ED8", // blue-700
     accentGold: "#F5B400",
     accentCoral: "#FB5D5D",
     accentEmerald: "#22C55E",
-    cream: "#FCF7F0",
+    cream: "#F8FAFC", // slate-50
     slate: "#94A3B8",
   },
 } as const;
@@ -87,9 +87,9 @@ export const PLATFORM_FEE_RATE = 0.05; // 5% platform fee on top of ticket subto
 export const DEFAULT_COMMISSION_RATE = 0.1; // 10% default seller commission
 
 export const CONTACT = {
-  phone: "0720 960 180", // TODO(PBAG): confirm real number
-  email: "pbagint@gmail.com", // TODO(PBAG): confirm real inbox
-  address: "Nairobi, Kenya", // TODO(PBAG): confirm physical/venue address
+  phone: "+254 720 960 180",
+  email: "pbagint@gmail.com",
+  address: "Limuru, Kenya",
   social: {
     facebook: "/placeholder",
     instagram: "/placeholder", // TODO(PBAG): confirm handle

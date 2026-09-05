@@ -23,8 +23,8 @@ async function getUpcomingEvents(): Promise<EventRecord[]> {
 
 const STATS = [
   { value: "4", label: "Subsidiaries" },
-  { value: "10+", label: "Years of live productions" },
-  { value: "50k+", label: "Audience members reached" },
+  { value: "15+", label: "Years of experience" },
+  { value: "10K+", label: "Audience members reached" },
   { value: "100%", label: "Digital + on-site ticketing" },
 ];
 
