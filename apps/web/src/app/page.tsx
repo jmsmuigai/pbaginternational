@@ -8,7 +8,6 @@ import { API_URL } from "@/lib/api";
 import { Tilt3D } from "@/components/Tilt3D";
 import { TraditionalDivider } from "@/components/TraditionalDivider";
 
-export const dynamic = "force-dynamic";
 
 async function getUpcomingEvents(): Promise<EventRecord[]> {
   try {

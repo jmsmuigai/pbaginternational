@@ -7,7 +7,6 @@ import { API_URL } from "@/lib/api";
 import { formatDate, formatKES } from "@/lib/format";
 
 export const metadata: Metadata = { title: "Tickets" };
-export const dynamic = "force-dynamic";
 
 async function getEvents(): Promise<EventRecord[]> {
   try {

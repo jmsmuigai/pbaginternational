@@ -8,7 +8,6 @@ import { formatDate, formatTime } from "@/lib/format";
 import { CheckoutFlow } from "@/components/CheckoutFlow";
 import { BecomeSeller } from "@/components/BecomeSeller";
 
-export const dynamic = "force-dynamic";
 
 async function getEvent(slug: string): Promise<EventRecord | null> {
   try {
