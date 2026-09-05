@@ -8,10 +8,11 @@ import { formatDate, formatTime } from "@/lib/format";
 import { CheckoutFlow } from "@/components/CheckoutFlow";
 import { BecomeSeller } from "@/components/BecomeSeller";
 
+export async function generateStaticParams() { return []; }
 
 async function getEvent(slug: string): Promise<EventRecord | null> {
   try {
-    const res = await fetch(`${API_URL}/events/${slug}`, { cache: "no-store" });
+    const res = await fetch(`${API_URL}/events/${slug}`);
     if (!res.ok) return null;
     const data = await res.json();
     return data.event as EventRecord;

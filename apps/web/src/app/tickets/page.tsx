@@ -10,7 +10,7 @@ export const metadata: Metadata = { title: "Tickets" };
 
 async function getEvents(): Promise<EventRecord[]> {
   try {
-    const res = await fetch(`${API_URL}/events`, { cache: "no-store" });
+    const res = await fetch(`${API_URL}/events`);
     if (!res.ok) return [];
     const data = await res.json();
     return data.events as EventRecord[];
