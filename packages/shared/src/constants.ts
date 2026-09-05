@@ -113,6 +113,7 @@ export const NAV_ITEMS = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
   { label: "Subsidiaries", href: "/subsidiaries", dropdown: true },
+  { label: "Consultancy", href: "/consultancy" },
   { label: "Tickets", href: "/tickets" },
   { label: "Contact Us", href: "/contact" },
 ] as const;

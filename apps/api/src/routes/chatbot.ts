@@ -39,6 +39,9 @@ function offlineReply(message: string, eventTitles: string[]): string {
   if (/(seller|commission|affiliate|promo code)/.test(m)) {
     return "If you'd like to sell tickets and earn commission, apply from an event's page. You'll get a unique promo code, a trackable link, and a QR code — every sale attributed to you is tracked automatically on your seller dashboard.";
   }
+  if (/(consult|consultanc|advis|generative ai|gen ai|ai tool|agentic)/.test(m)) {
+    return "PBAG also consults for other theatre companies, schools, and independent producers — on production strategy, and on where generative-AI tooling (script coverage, storyboards, marketing key art) genuinely helps. See the Consultancy page for packages, or message us on WhatsApp to book a discovery call.";
+  }
   if (/(contact|phone|email|reach)/.test(m)) {
     return `You can reach PBAG at ${CONTACT.email} or ${CONTACT.phone}, or use the contact form on the Contact Us page.`;
   }
@@ -61,7 +64,7 @@ chatbotRouter.post("/", async (req, res) => {
     try {
       const system = `You are the PBAG Consortium (Peers Best Art Group) website assistant. Be concise and friendly. PBAG has four subsidiaries: ${SUBSIDIARIES.map(
         (s) => `${s.name} (${s.description})`
-      ).join(" | ")}. Events currently on sale: ${onSaleTitles.join(", ") || "none right now"}. Contact: ${CONTACT.email}, ${CONTACT.phone}. Payment methods: M-Pesa, Airtel Money, card, PayPal, and cash/M-Pesa at the door.`;
+      ).join(" | ")}. Events currently on sale: ${onSaleTitles.join(", ") || "none right now"}. Contact: ${CONTACT.email}, ${CONTACT.phone}. Payment methods: M-Pesa, Airtel Money, card, PayPal, and cash/M-Pesa at the door. PBAG also runs a theatre & film consultancy (production strategy, dramaturgy, budgeting) and a generative-AI-for-theatre-and-film service (AI-assisted script coverage, storyboards/mood boards, marketing key art, cut-sequence drafts — always human-reviewed before anything is final) — see the Consultancy page for packages (Starter, Production, Ongoing Partner) and point people there or to WhatsApp for a discovery call.`;
 
       const { data } = await axios.post(
         "https://api.anthropic.com/v1/messages",

@@ -122,6 +122,50 @@ export default async function HomePage() {
 
       <TraditionalDivider />
 
+      {/* Consultancy & Generative AI teaser */}
+      <section className="py-24">
+        <div className="mx-auto max-w-7xl px-6 md:px-8">
+          <div className="grid gap-10 rounded-3xl border border-gold/25 bg-gradient-to-br from-white/5 to-transparent p-8 shadow-glow-gold md:grid-cols-2 md:p-12">
+            <div className="flex flex-col justify-center">
+              <p className="text-sm font-semibold uppercase tracking-widest text-gold">New: Consultancy &amp; Generative AI</p>
+              <h2 className="mt-3 font-display text-3xl font-extrabold md:text-4xl">
+                Producing a show or a film? <span className="text-gradient">We advise on both.</span>
+              </h2>
+              <p className="mt-4 text-cream/70">
+                Beyond our own stage, Peatice Productions and the PBAG team consult for other theatre companies,
+                schools, and independent filmmakers — on production strategy, and on where an agentic,
+                generative-AI-assisted workflow can genuinely speed things up.
+              </p>
+              <div className="mt-4 flex flex-wrap gap-3 text-xs">
+                <span className="rounded-full bg-white/5 px-3 py-1.5 text-cream/70 ring-1 ring-white/10">🎭 Theatre strategy</span>
+                <span className="rounded-full bg-white/5 px-3 py-1.5 text-cream/70 ring-1 ring-white/10">🎬 Film production</span>
+                <span className="rounded-full bg-white/5 px-3 py-1.5 text-cream/70 ring-1 ring-white/10">✨ Generative AI tooling</span>
+              </div>
+              <Link
+                href="/consultancy"
+                className="mt-8 inline-flex w-fit rounded-full bg-gradient-to-r from-gold to-coral px-6 py-3 text-sm font-bold text-ink shadow-glow-gold transition hover:-translate-y-0.5"
+              >
+                Explore consultancy services →
+              </Link>
+            </div>
+            <div className="grid grid-cols-3 gap-4 self-center">
+              {[
+                { icon: "/images/consultancy/icon-theatre.svg", label: "Theatre" },
+                { icon: "/images/consultancy/icon-film.svg", label: "Film" },
+                { icon: "/images/consultancy/icon-generative-ai.svg", label: "AI" },
+              ].map((item) => (
+                <div key={item.label} className="flex flex-col items-center gap-2 rounded-2xl bg-white/[0.03] p-4 ring-1 ring-white/10">
+                  <Image src={item.icon} alt="" width={64} height={64} className="h-14 w-14" />
+                  <span className="text-xs font-semibold text-cream/70">{item.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <TraditionalDivider />
+
       {/* CTA */}
       <section className="relative overflow-hidden py-24">
         <div className="absolute inset-0 bg-brand-gradient opacity-90" />

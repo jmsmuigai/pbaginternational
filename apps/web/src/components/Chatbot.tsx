@@ -8,13 +8,13 @@ const SUGGESTIONS = [
   "How do I buy a ticket?",
   "How does M-Pesa payment work?",
   "What are PBAG's subsidiaries?",
-  "How do I join PBAG Theatre?",
+  "Tell me about your consultancy & AI services",
 ];
 
 export function Chatbot() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<ChatbotMessage[]>([
-    { role: "assistant", content: "Habari! I'm the PBAG assistant. Ask me about events, tickets, M-Pesa payments, or our subsidiaries." },
+    { role: "assistant", content: "Habari! I'm the PBAG assistant. Ask me about events, tickets, M-Pesa payments, our subsidiaries, or our theatre/film consultancy and generative-AI services." },
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);

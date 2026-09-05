@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { CONTACT, SUBSIDIARIES } from "@pbag/shared";
 
 export function Footer() {
@@ -6,9 +7,12 @@ export function Footer() {
     <footer className="border-t border-white/10 bg-surface">
       <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 md:grid-cols-4 md:px-8">
         <div>
-          <p className="font-display text-xl font-bold">
-            <span className="text-gradient">PBAG</span> Consortium
-          </p>
+          <Link href="/" className="flex items-center gap-3 mb-2">
+            <Image src="/images/brand/logo_3d.jpg" alt="PBAG logo" width={40} height={40} className="rounded-full" />
+            <p className="font-display text-xl font-bold">
+              <span className="text-gradient">PBAG</span> Consortium
+            </p>
+          </Link>
           <p className="mt-1 text-xs uppercase tracking-widest text-cream/40">Peers Best Art Group</p>
           <p className="mt-3 text-sm text-cream/60">
             Theatre. Talent. Production. Leadership. One consortium, four subsidiaries, live on stage.
@@ -19,6 +23,7 @@ export function Footer() {
           <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-cream/50">Explore</p>
           <ul className="space-y-2 text-sm text-cream/80">
             <li><Link href="/about" className="hover:text-gold">About Us</Link></li>
+            <li><Link href="/consultancy" className="hover:text-gold">Consultancy &amp; AI</Link></li>
             <li><Link href="/tickets" className="hover:text-gold">Tickets</Link></li>
             <li><Link href="/contact" className="hover:text-gold">Contact Us</Link></li>
           </ul>
